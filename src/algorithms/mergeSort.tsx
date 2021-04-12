@@ -1,17 +1,19 @@
-export const mergeSort = (array: number[], startIndex: number, endIndex: number): number[] => {
+export const mergesort = (array, startIndex, endIndex) => {
     var middle = Math.floor((endIndex - startIndex) / 2)
     console.log(startIndex, endIndex, middle, array)
 
-    let l: number = array.length;
+    let l = array.length;
     if (l === 0 || l === 1) {
         return array
     }
 
-    const startMiddleArray = array.slice(startIndex, middle + 1)
-    const endMiddleArray = array.slice(middle + 1, endIndex + 1)
+    const startMiddleArray = array.slice(startIndex, middle)
+    const endMiddleArray = array.slice(middle, endIndex + 1)
 
-    const startMiddle = mergeSort(startMiddleArray, startIndex, middle)
-    const endMiddle = mergeSort(endMiddleArray, middle + 1, endIndex +1)
+    const startMiddle = mergesort(startMiddleArray, 0, startMiddleArray.length)
+    const endMiddle = mergesort(endMiddleArray, 0, endMiddleArray.length)
+
+    debugger
 
     let result = []
     
@@ -28,7 +30,9 @@ export const mergeSort = (array: number[], startIndex: number, endIndex: number)
         if (ie >= endMiddle.length) {
             result.push(startMiddle[is])
             is++
+
             continue
+        
         }
 
         if (startMiddle[is] < endMiddle[ie]) {
@@ -39,6 +43,6 @@ export const mergeSort = (array: number[], startIndex: number, endIndex: number)
             ie++
         }
     }
+
     return result
 }
-
