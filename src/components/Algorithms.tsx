@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
-import { mergeSort } from '../algorithms/mergeSort'
+import { mergeSort, iterativeMergeSort } from '../algorithms/mergeSort'
 
 const Algorithms = () => {
 
-  const [values, setValues] = useState([3, 4, 1, 5, 2, 9])
+  const [values, setValues] = useState([9,7,5,4,3,2,1])
 
   const merge = () => {
-    const newValues = mergeSort(values, 0, values.length)
-    setValues(newValues)
+    iterativeMergeSort (values, setValues)
+    //setValues(newValues)
   }
 
 

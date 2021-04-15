@@ -1,4 +1,5 @@
-export const mergesort = (array, startIndex, endIndex) => {
+import React from 'react'
+export const mergeSort = (array: number[], startIndex: number, endIndex: number): number[] => {
     var middle = Math.floor((endIndex - startIndex) / 2)
     console.log(startIndex, endIndex, middle, array)
 
@@ -10,8 +11,8 @@ export const mergesort = (array, startIndex, endIndex) => {
     const startMiddleArray = array.slice(startIndex, middle)
     const endMiddleArray = array.slice(middle, endIndex + 1)
 
-    const startMiddle = mergesort(startMiddleArray, 0, startMiddleArray.length)
-    const endMiddle = mergesort(endMiddleArray, 0, endMiddleArray.length)
+    const startMiddle = mergeSort(startMiddleArray, 0, startMiddleArray.length)
+    const endMiddle = mergeSort(endMiddleArray, 0, endMiddleArray.length)
 
     debugger
 
@@ -45,4 +46,45 @@ export const mergesort = (array, startIndex, endIndex) => {
     }
 
     return result
+}
+
+export const iterativeMergeSort = (arr: number[], setState: (state: number[]) => void) => {
+  var sorted = arr.slice(),
+  n = sorted.length,
+  buffer = new Array(n);
+  let count = 1
+
+  for (var size = 1; size < n; size *= 2) {
+    for (var leftStart = 0; leftStart < n; leftStart += 2*size) {
+      var left = leftStart,
+      right = Math.min(left + size, n),
+      leftLimit = right,
+      rightLimit = Math.min(right + size, n),
+      i = left;
+
+      while (left < leftLimit && right < rightLimit) {
+        if (sorted[left] <= sorted[right]) {
+          buffer[i++] = sorted[left++];
+        } else {
+          buffer[i++] = sorted[right++];
+        }
+      }
+      while (left < leftLimit) {
+        buffer[i++] = sorted[left++];
+      }
+      while (right < rightLimit) {
+        buffer[i++] = sorted[right++];
+      }
+    }
+    var temp: number[] = sorted
+    var sorted: number[] = buffer
+    var buffer: any[] = temp
+    let sortedCopy = [...sorted]
+    let countCopy = count
+    
+    console.log(sortedCopy)
+    setTimeout(() => setState(sortedCopy), count++ * 1000)
+  }
+
+  return sorted
 }
