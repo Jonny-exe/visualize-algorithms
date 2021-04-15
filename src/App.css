@@ -10,6 +10,7 @@
   text-align: center;
   --purple: #CF6BDD;
   --blue: #101820;
+  --speed: 0.5s;
   background-color: var(--blue);
   color: var(--purple);
 }
@@ -19,7 +20,22 @@ h2 {
 }
 
 hr {
-  color: white;
+  color: var(--purple);
+}
+
+button{
+  cursor: pointer;
+  background-color: var(--blue);
+  border: 2px solid var(--purple);
+  color: var(--purple);
+  padding: 0.5%;
+  margin: 1%;
+  transition-duration: var(--speed);
+}
+
+button:hover {
+  background-color: var(--purple);
+  color: var(--blue);
 }
 
 .algorithm-selection {
@@ -27,9 +43,16 @@ hr {
 }
 
 .algorithm-value {
-  margin: 5% 5%;
+  margin: 1%;
+  padding: 1%;
+  background-color: var(--purple);
+  color: white;
 }
 
 .algorithms {
+  width: 100%;
   display: flex;
+  height: 20%;
+  justify-content: center;
+  align-items: flex-end;
 }
