@@ -16,7 +16,9 @@ const Algorithms = () => {
       <div className="algorithms">
         {
           values.map((value, index) => (
-            <div className="algorithm-value" key={index} style={{height: `${(value * 10)}%`}}> {value} </div>
+          <div className="algorithm-value-container" key={index} style={{height: `${(value * 10)}%`}}>
+            <div className="algorithm-value"> {value} </div>
+          </div>
           ))
         }
       </div>
