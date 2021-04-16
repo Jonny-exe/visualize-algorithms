@@ -13,15 +13,28 @@ const Algorithms = () => {
 
   return (
     <>
-      <div className="algorithms">
-        {
-          values.map((value, index) => (
-          <div className="algorithm-value-container" key={index} style={{height: `${(value * 9 + 10)}%`}}>
-            <div className="algorithm-value"> {value} </div>
-          </div>
-          ))
-        }
+    <div className="algorithms">
+    <div className="columns">
+    {
+      values.map((value, index) => (
+      <>
+      <div className="algorithm-value-container" key={index} style={{height: `${(value * 9 + 10)}%`}}>
+        <div className="algorithm-value"></div>
       </div>
+      </>
+    ))
+    }
+    </div>
+    <div className="values">
+      {
+        values.map((value, index) => (
+          <div className="value-item"> 
+            {value}
+            </div>
+        ))
+      }
+    </div>
+    </div>
       <button className="run-algorithm" onClick={merge}> Merge </button>
     </>
   )

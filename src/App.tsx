@@ -10,6 +10,7 @@ function App() {
       <AlgorithmSelection />
         <div className="algorithm-container">
           <Algorithms />
+          <button class="see-code">{"<>"}</button>
         </div>
     </div>
   );
