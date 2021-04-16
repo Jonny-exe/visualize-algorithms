@@ -52,7 +52,7 @@ export const iterativeMergeSort = (arr: number[], setState: (state: number[]) =>
   var sorted = arr.slice(),
   n = sorted.length,
   buffer = new Array(n);
-  let count = 1
+  let count = 0
 
   for (var size = 1; size < n; size *= 2) {
     for (var leftStart = 0; leftStart < n; leftStart += 2*size) {

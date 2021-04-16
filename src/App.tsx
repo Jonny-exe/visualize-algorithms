@@ -8,7 +8,9 @@ function App() {
   return (
     <div className="App">
       <AlgorithmSelection />
-      <Algorithms />
+        <div className="algorithm-container">
+          <Algorithms />
+        </div>
     </div>
   );
 }
