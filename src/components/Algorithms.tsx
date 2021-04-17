@@ -1,13 +1,27 @@
 import React, {useState} from 'react'
 import { iterativeMergeSort } from '../algorithms/mergeSort'
+import { iterativeQuickSort } from '../algorithms/quickSort'
 
-const Algorithms = () => {
+interface Props {
+  algorithmType: string;
+}
+
+const Algorithms: React.FC<Props> = ({algorithmType}) => {
 
   const [values, setValues] = useState([9,7,5,4,3,2,1])
   const [finished, setFinished] = useState(false)
 
   const merge = () => {
-    iterativeMergeSort(values, setValues, setFinished)
+    switch(algorithmType) {
+      case "mergesort":
+        iterativeMergeSort(values, setValues, setFinished)
+        break;
+
+      case "quicksort":
+        iterativeQuickSort(values, setValues)
+        break
+
+    }
   }
 
   return (

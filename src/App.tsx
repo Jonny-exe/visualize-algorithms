@@ -7,16 +7,16 @@ import AlgorithmSource from './components/AlgorithmSource'
 function App() {
 
   const [showCode, setShowCode] = useState(false)
-  const [algorithmType] = useState("mergesort")
+  const [algorithmType, setAlgorithmType] = useState("mergesort")
   const toggleCode = () => {
     setShowCode(!showCode)
   }
 
   return (
     <div className="App">
-      <AlgorithmSelection />
+      <AlgorithmSelection setAlgorithmType={setAlgorithmType} algorithmType={algorithmType} />
         <div className="algorithm-container">
-          <Algorithms />
+          <Algorithms algorithmType={algorithmType}/>
         </div>
         <button onClick={toggleCode} className="see-code">{"<>"}</button>
           <div className={`code ${showCode ? "active" : ""}`}>
