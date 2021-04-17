@@ -34,7 +34,7 @@ h2 {
 }
 
 hr {
-  color: var(--purple);
+  color: inherit;
   border-style: solid;
 }
 
@@ -55,9 +55,40 @@ button:hover {
   color: white;
 }
 
+.active {
+  display: inherit !important;
+}
 
 .algorithm-selection {
+  color: var(--purple);
   padding: 2%;
+}
+
+.algorithm-selection:hover {
+  color: white;
+}
+
+.algorithm-selection-window {
+  display: none;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: var(--blue);
+  height: 70vh;
+  width: 70vw;
+  padding: 5%;
+  border-radius: 1vmax;
+  text-align: center;
+}
+
+.algorithm-selection-window.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @keyframes value {
@@ -181,11 +212,7 @@ button:hover {
   border-radius: 1vmax;
 }
 
-.code.active {
-  display: inherit;
-}
-
-.code-background {
+.code-background, .algorithm-selection-window-background {
   display: none;
   z-index: 5;
   background: rgba(0,0,0,.75);
@@ -197,6 +224,6 @@ button:hover {
   height: 100%;
 }
 
-.code-background.active {
-  display: inherit;
+.window-button {
+  width: 100%;
 }
