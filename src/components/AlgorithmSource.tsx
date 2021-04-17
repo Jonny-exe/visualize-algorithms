@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface Props {
-    AlgorithmType: string;
+    algorithmType: string;
 }
 
 const AlgorithmSource: React.FC<Props> = ({algorithmType}) => {

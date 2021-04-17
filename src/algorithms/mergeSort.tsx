@@ -1,4 +1,3 @@
-import React from 'react'
 export const mergeSort = (array: number[], startIndex: number, endIndex: number): number[] => {
     var middle = Math.floor((endIndex - startIndex) / 2)
     console.log(startIndex, endIndex, middle, array)
@@ -48,7 +47,7 @@ export const mergeSort = (array: number[], startIndex: number, endIndex: number)
     return result
 }
 
-export const iterativeMergeSort = (arr: number[], setState: (state: number[]) => void) => {
+export const iterativeMergeSort = (arr: number[], setState: (state: number[]) => void, setFinished: (state: boolean) => void) => {
   var sorted = arr.slice(),
   n = sorted.length,
   buffer = new Array(n);
@@ -85,6 +84,7 @@ export const iterativeMergeSort = (arr: number[], setState: (state: number[]) =>
     console.log(sortedCopy)
     setTimeout(() => setState(sortedCopy), count++ * 1000)
   }
-
+  
+  setTimeout(() => setFinished(true), count++ * 1000)
   return sorted
 }
